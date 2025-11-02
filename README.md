@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# 🧮 Calculator — React + TypeScript + TailwindCSS + Zustand
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простой, быстрый и стильный калькулятор, созданный с использованием **React**, **TypeScript**, **TailwindCSS** и **Zustand**.  
+Проект демонстрирует чистую архитектуру, минимализм и скорость разработки благодаря **Vite** и **Bun**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Возможности
 
-## React Compiler
+- 💡 Быстрые математические операции (+, −, ×, ÷, %, ±).  
+- ⚡ Состояние через **Zustand** — просто, понятно, без лишнего кода.  
+- 🎨 Стили на **TailwindCSS** — гибкий, адаптивный дизайн.  
+- 🧱 Полная типизация на **TypeScript**.  
+- 🚀 Сборка и запуск на **Vite**.  
+- 🍞 Поддержка **Bun** (в проекте есть `bun.lock`).
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 🚀 Установка и запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Клонируй проект и установи зависимости:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/<your-username>/calculator-ts.git
+cd calculator-ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Установи зависимости и запусти проект:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Для npm:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+npm install
+npm run dev
+```
+
+Для bun:
+
+```
+bun install
+bun dev
+```
+
+# 📁 Структура проекта
+
+```
+calculator-ts/
+├─ node_modules/
+├─ public/
+├─ src/
+│  ├─ components/
+│  │  ├─ Button.tsx          # Кнопки интерфейса
+│  │  └─ Heading.tsx         # Заголовок приложения
+│  ├─ store/
+│  │  ├─ counter.types.ts    # Типы для состояния
+│  │  └─ counterStore.ts     # Хранилище Zustand
+│  ├─ types/
+│  │  └─ interfaces.ts       # Общие интерфейсы TypeScript
+│  ├─ utils/
+│  │  ├─ addOperator.ts      # Добавление операторов
+│  │  ├─ data.ts             # Константы / данные кнопок
+│  │  └─ doOperation.ts      # Выполнение вычислений
+│  ├─ App.tsx                # Главный компонент
+│  ├─ main.tsx               # Точка входа
+│  └─ index.css              # Базовые стили
+├─ .gitignore
+├─ bun.lock
+├─ eslint.config.js
+├─ index.html
+├─ package.json
+├─ README.md
+├─ tailwind.config.ts
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.ts
+```
+
+Создано с ❤️ на React + TypeScript + Tailwind + Zustand.
